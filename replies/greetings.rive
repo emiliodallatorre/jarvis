@@ -1,0 +1,14 @@
++ ciao
+- Buongiorno, signore.
+- Ciao!
+- Ehylà!
+
++ ehy
+- {@ ciao}
+
++ * *
+- {@ <star1>} {@ <star2>}
+
++ come stai|come va
+- Qui tutto bene, altrochè.
+- Pronto per servirla, signore.

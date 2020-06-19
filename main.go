@@ -7,9 +7,15 @@ import (
 )
 
 func main() {
-	var inputString string = input.Input()
+	var processor processing.Processor
+	processor.Initialize()
 
-	var processResult string = processing.Process(inputString)
+	for
+	{
+		var inputString string = input.Input()
 
-	output.Output(processResult)
+		processResult, processError  := processor.Process(inputString)
+
+		output.Output(processResult, processError)
+	}
 }
