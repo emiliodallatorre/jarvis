@@ -21,6 +21,11 @@ public class Telegram implements Channel {
     int lastMessageId = -1;
 
     @Override
+    public String getName() {
+        return "Telegram";
+    }
+
+    @Override
     public String input() {
         GetUpdates getUpdates = new GetUpdates().limit(100).offset(lastMessageId).timeout(0);
 
@@ -44,6 +49,9 @@ public class Telegram implements Channel {
 
         lastMessageId = message.messageId();
         chatId = message.chat().id();
+
+        // TODO: Gestire meglio la questione.
+        if (message.text() == null) return input();
 
         return message.text();
     }

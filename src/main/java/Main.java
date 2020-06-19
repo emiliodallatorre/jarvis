@@ -1,6 +1,7 @@
 import channels.Channel;
 import channels.Telegram;
 import processing.Processor;
+import utility.Logger;
 
 public class Main {
     public static void main(String[] args) {
@@ -14,10 +15,12 @@ public class Main {
         while (true) {
             String input = currentChannel.input();
             if (input.equals("/shutdown")) break;
+            Logger.logInput(input, currentChannel);
 
             String output = processor.process(input);
 
             currentChannel.output(output);
+            Logger.logOutput(input, currentChannel);
         }
     }
 }

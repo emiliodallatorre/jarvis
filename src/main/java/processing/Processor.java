@@ -7,9 +7,7 @@ public class Processor {
     RiveScript riveScript;
 
     public String process(String input) {
-        String reply = riveScript.reply("user", input);
-
-        return reply;
+        return riveScript.reply("user", input);
     }
 
     public void initialize() {
@@ -21,6 +19,5 @@ public class Processor {
 
         // Sort the replies after loading them!
         riveScript.sortReplies();
-
     }
 }

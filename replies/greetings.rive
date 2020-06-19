@@ -9,6 +9,17 @@
 + * *
 - {@ <star1>} {@ <star2>}
 
-+ come stai|come va
++ [*] (come stai|come va) [*]
 - Qui tutto bene, altrochè.
 - Pronto per servirla, signore.
+
++ [*] come ti chiami [*]
+- Il mio nome è <bot name>.\n
+^ Assistente personale per servirla.
+
++ [*] (chi|cosa) sei [*]
+- Io sono un bot, creato da <bot creator>.\n
+^ Il mio scopo è servirlo.
+
++ *
+- Non ho ancora una risposta per questo, mi dispiace signore.

@@ -8,6 +8,11 @@ import java.io.InputStreamReader;
 
 public class Terminal implements Channel {
     @Override
+    public String getName() {
+        return "Terminal";
+    }
+
+    @Override
     public String input() {
         BufferedReader reader =
                 new BufferedReader(new InputStreamReader(System.in));

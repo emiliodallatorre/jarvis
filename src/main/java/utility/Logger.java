@@ -1,5 +1,7 @@
 package utility;
 
+import channels.Channel;
+
 public class Logger {
     static final String ANSI_RESET = "\u001B[0m";
     static final String ANSI_BLACK = "\u001B[30m";
@@ -22,21 +24,33 @@ public class Logger {
 
 
     public static void logWarning(String log) {
-        System.out.print(ANSI_YELLOW + log);
+        System.out.println(ANSI_YELLOW + log);
         reset();
     }
 
     public static void logError(String log) {
-        System.out.print(ANSI_RED + log);
+        System.out.println(ANSI_RED + log);
         reset();
     }
 
     public static void logDebug(String log) {
-        System.out.print(ANSI_GREEN + log);
+        System.out.println(ANSI_GREEN + log);
         reset();
     }
 
+    public static void logInput(String input, Channel channel) {
+        System.out.print(ANSI_BLUE_BACKGROUND + "[" + channel.getName() + "]");
+        reset();
+        System.out.println(" User: " + input);
+    }
+
+    public static void logOutput(String input, Channel channel) {
+        System.out.print(ANSI_BLUE_BACKGROUND + "[" + channel.getName() + "]");
+        reset();
+        System.out.println(" Jarvis: " + input + "\n");
+    }
+
     static void reset() {
-        System.out.println(ANSI_RESET);
+        System.out.print(ANSI_RESET);
     }
 }
