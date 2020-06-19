@@ -1,17 +1,35 @@
 package input
 
 import (
-	"bufio"
+	"../channels/telegram"
+	"../channels/terminal"
 	"fmt"
-	"os"
-	"strings"
 )
 
-func Input() string {
-	fmt.Print("emiliodallatorre: ")
-
-	scanner := bufio.NewScanner(os.Stdin)
-	scanner.Scan()
-
-	return strings.Trim(scanner.Text(), " ")
+type Input struct {
+	InputType string
 }
+
+func (i Input) Input() string {
+
+	switch i.InputType {
+	case Terminal:
+
+		return terminal.Input()
+	case Telegram:
+		var telegramChannel telegram.TelegramChannel
+		telegramChannel.Initialize()
+		telegramChannel.Input()
+	}
+}
+
+func (i Input) Initialize(inputType string) {
+	i.InputType = inputType
+
+	fmt.Println("Inizializzato l'input col canale: [" + inputType + "].")
+}
+
+const (
+	Terminal = "terminal"
+	Telegram = "telegram"
+)

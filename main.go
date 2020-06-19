@@ -14,7 +14,7 @@ func main() {
 	{
 		var inputString string = input.Input()
 
-		processResult, processError  := processor.Process(inputString)
+		processResult, processError := processor.Process(inputString)
 
 		output.Output(processResult, processError)
 	}
