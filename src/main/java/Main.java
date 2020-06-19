@@ -8,6 +8,7 @@ public class Main {
         currentChannel.initialize();
 
         Processor processor = new Processor();
+        processor.initialize();
 
         while (true) {
             String input = currentChannel.input();

@@ -18,7 +18,7 @@ public class Telegram implements Channel {
 
     TelegramBot telegramBot;
     long chatId;
-    int lastMessageId;
+    int lastMessageId = -1;
 
     @Override
     public String input() {
@@ -29,6 +29,9 @@ public class Telegram implements Channel {
 
         Update update = updates.get(updates.size() - 1);
         Message message = update.message();
+
+        // Serve ad evitare il primo messagio non richiesto.
+        if (lastMessageId == -1) lastMessageId = message.messageId();
 
         if (message.messageId() == lastMessageId) {
             try {
@@ -41,7 +44,6 @@ public class Telegram implements Channel {
 
         lastMessageId = message.messageId();
         chatId = message.chat().id();
-        System.out.println(message.text());
 
         return message.text();
     }
