@@ -10,8 +10,10 @@ public class Main {
         Processor processor = new Processor();
         processor.initialize();
 
+        // TODO: Trovare un modo per tenere più canali concorrenti.
         while (true) {
             String input = currentChannel.input();
+            if (input.equals("/shutdown")) break;
 
             String output = processor.process(input);
 
