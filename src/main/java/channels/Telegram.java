@@ -32,7 +32,11 @@ public class Telegram implements Channel {
         GetUpdatesResponse updatesResponse = telegramBot.execute(getUpdates);
         List<Update> updates = updatesResponse.updates();
 
-        Update update = updates.get(updates.size() - 1);
+        Update update;
+        if (updates.size() > 0)
+            update = updates.get(updates.size() - 1);
+        else update = updates.get(0);
+
         Message message = update.message();
 
         // Serve ad evitare il primo messagio non richiesto.
